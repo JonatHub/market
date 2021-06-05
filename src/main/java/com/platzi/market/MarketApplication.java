@@ -1,5 +1,7 @@
 package com.platzi.market;
 
+import com.platzi.market.persistence.ProductoRepository;
+import com.platzi.market.persistence.crud.ProductoCrudRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MarketApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(MarketApplication.class, args);
+
+
 	}
+
+
 
 }
