@@ -1,42 +1,35 @@
 package com.platzi.market.persistence.entity;
 
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="compras")
+@Table(name = "compras")
 public class Compra {
 
     @Id
-    @Column(name="id_compra")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_compra")
     private Integer idCompra;
 
-
-    @Column(name="id_cliente")
+    @Column(name = "id_cliente")
     private String idCliente;
 
     private LocalDateTime fecha;
 
-    @Column(name="medio_pago")
+    @Column(name = "medio_pago")
     private String medioPago;
+
     private String comentario;
-    private boolean estado;
+    private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
     @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> productos;
-
-
-
-
-
 
     public Integer getIdCompra() {
         return idCompra;
@@ -56,22 +49,6 @@ public class Compra {
 
     public LocalDateTime getFecha() {
         return fecha;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public List<ComprasProducto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<ComprasProducto> productos) {
-        this.productos = productos;
     }
 
     public void setFecha(LocalDateTime fecha) {
@@ -94,11 +71,27 @@ public class Compra {
         this.comentario = comentario;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ComprasProducto> productos) {
+        this.productos = productos;
     }
 }
