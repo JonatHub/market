@@ -1,4 +1,4 @@
-package com.platzi.market.web.controller.config;
+package com.platzi.market.web.config;
 
 import jdk.jfr.Enabled;
 import org.springframework.context.annotation.Bean;
